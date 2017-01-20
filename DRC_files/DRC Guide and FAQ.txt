@@ -1,0 +1,96 @@
+
+*******************************************
+DRC Guide and FAQ: Primary and Add-On files
+*******************************************
+
+Daniel Giesbrecht
+18/01/17
+Tested on Altium Designer 16.1
+
+
+A word of warning:
+
+*********************************************************************************************************************************
+                                                  *** THE DRC PROTECTS YOUR DESIGN ***
+
+Please do not create a DRC Add-On without thorough knowledge of the DRC system. Doing so may result in unanticipated
+build-errors or manufacturing defects.
+
+*********************************************************************************************************************************
+*********************************************************************************************************************************
+
+What is DRC?
+
+- DRC stands for Design Rule Check. The rules specified dictate how your PCB can be made, and what tolerances you cannot violate.
+  It is crucial to creating a manufacturable and electrically stable PCB.
+- A DRC file is the exported format of the rules, allowing them to be shared and stored. For Altium, the file extension
+  is <.RUL>
+
+
+What is a Primary DRC file?
+
+- The DRC rules can be imported and exported from your project. I have created a Master DRC Rule file which dictates how
+  our team's PCBs should be made, which I have named the 'Primary DRC file'. You can customize these rules locally in your
+  project, but it is **mandatory** to use the Primary DRC files to ensure a high level of quality control in the boards that
+  we produce.
+
+
+What is a DRC Add-On file?
+
+- A DRC Add-On file is simply a DRC file with only a portion of all the rules. It is meant to be appended to the
+  Primary DRC file, to allow for specific changes.
+- By having two separate files, you can maintain local custom rules, while still getting relevant updates to all other DRC rules
+    from the GitHub Repository.
+
+
+Primary Rules of Use:
+
+- Primary DRC files must be used for PCB design by default. They are maintained in <AltiumLibraries/DRC_files>.
+    -> This ensures that common design standards are followed among all Solar Car PCB designers, and avoids variance among
+       new designers with less knowledge of the DRC system.
+- Rule Add-On files are meant to compliment the primary DRC file.
+    -> Add-On files should be created if design exceptions warrant custom DRC rules that diverge from the primary DRC file.
+        eg) Larger clearance requirements than normal, unusual trace width, etc.
+- Projects should be limited to using exactly one Primary DRC file, and a maximum of one Add-On file.
+
+
+Naming Convention:
+
+    - Add-On files should be named by taking the project name (filename with .PrjPcb extension), and appending (_DRCadd), with
+      the file extension (.RUL).
+       eg) if a project file is named 'DCDC-Converter.PrjPcb', the Add-On file will be named 'DCDC-Converter_DRCadd.RUL'.
+
+
+File Location:
+    - The Add-On file should be located in your project directory, along with schematic and
+      PCB files (.SchDoc and .PcbDoc extensions).
+
+
+How to Use the Primary DRC and Add-On files:
+
+1) Check for AltiumLibraries Repository Update.
+2) Update your DRC.
+       a) Open your PCB document. Navigate to 'Design' in the top horizontal toolbar. Select 'Rules...' from the dropdown.
+          Alternatively, click the working area of your PCB document (where the PCB is) and hit <D> then <R> on your keyboard.
+          (You must be in 2D or 3D view for this macro to work. Do so by hitting <2> or <3> along the top number keys
+          of your keyboard).
+       b) You should now be in the 'PCB Rules and Constraints Editor'. Right-click on the whitespace in the left column.
+          Select 'Import Rules' from the dropdown.
+       c) Highlight EVERY item in the window that opens, and click 'OK'.
+       d) Navigate to the AltiumLibraries/DRC_files folder. This should be a submodule of your project. Select a suitable
+          Primary DRC (likely manufacturer-specific). Click 'OK'.
+
+3) Now for the Add-On file! (Note that steps 1) -> 2d) apply for every project which uses the Primary DRC file.)
+   Repeat step 2), and substitute your Add-On file instead of the files contained in <AltiumLibraries/DRC_files>.
+4) Note that you must do the DRC import in this order. Otherwise, your custom Add-On DRC will be completely overwritten by the
+   Primary DRC file.
+5) You have successfully updated your DRC!
+
+
+How to Create or Modify an Add-On file:
+
+<< This content is coming soon. Sorry for the inconvenience. Contact the Electrical Manager or PCB Team Lead for assitance. >>
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                               END
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
