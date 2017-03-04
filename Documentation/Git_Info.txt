@@ -1,0 +1,66 @@
+Git clone url
+Git add -u
+Git commit -m “I did this”
+Git fetch //just in case someone did something 
+Git push origin master
+
+Diff -u file one new file
+
+Git origin -v
+
+Moving what chathula just did into my master 
+Git fetch
+Git rebase origin/master
+•	Git rebase -i allows you to rebase maually
+
+Commiting and pushing
+Git status
+Git add -u // adds only things that are ready to commit
+•	Git -A is used if any new file is present
+Git status
+Git commit -m “”
+Git fetch to make sure nothing has changed
+Git push if nothing has or see above if something is new
+If you are on a new branch and don’t want your edits, and want to go back to master, or the branch is one commit ahead of you, 
+Git checkout origin/master -B master
+
+
+
+Gitk –all // shows the flow
+
+To delete modifications 
+Git stash save - - keep – index
+Git stash drop 
+
+Note: git rm filename.whatever deletes that file from the repo
+
+Delete unwanted ‘modifications’
+Reset - - hard to remove ALL changes
+Git checkout origin/master 
+Git checkout -B master //checks out the name of a branch to your current location “pulls master to where you are”
+Or
+If you have a single modification that you don’t want (file.n), and others that you do
+Git checkout HEAD  - -  file.n
+
+
+Git checkout -b name // creates branch name and moves you there
+
+
+
+Git reflog lets you see where you have been
+
+If you are on master and have uncommited changed and then do a fetch and are in a line:
+
+To fetch Altium Libraries from within Ambient light hardware:
+Git remote -v
+Git fetch upstream
+Git checkout origin/master -B master
+
+TO ADD ALTIUM libraries upstream
+Git remote add upstream URL
+
+Initialize altium libraries as a submodule 
+•	Enter ambient light hardware folder
+•	Git submodule update –init 
+
+
