@@ -25,5 +25,25 @@ The theory behind the part numbering system is hierarchical; `A` values are the 
   
 Our full part number is now: `R060-00121-05`.
 
+#### Field A
+- *C040:* 0402 Capacitor
+- *C060:* 0603 Capacitor
+- *R060:* 0603 Resistor
+
+#### Field B
+- Capacitor-Specific Examples:
+  - *xx0U1:* 0.1uF
+  - *xxx1U:* 1uF
+  - *xx2U2:* 2.2uF
+  - *xxx1N:* 1nF
+  - *xxx1P:* 1pF
+- Resistor-Specific Examples:
+  - *xx121:* 12 x 10^1
+
+#### Field C
+- Resistor-Specific Examples:
+  - *05:* 5% tolerance
+  - *01:* 1% tolerance
+  
 ### PCB Libraries
 < Need content here >
